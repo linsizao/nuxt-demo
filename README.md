@@ -77,6 +77,25 @@
                     / index.vue 会在一级展示
                     / index.vue 空文档代表有默认页，不会找其他详情页
 
+      扩展路由
+        router: {
+          extentRputers(router, resolve) {
+            router.push({
+              name: 'root',
+              path: '/index',
+              component: resolve(_dirname,'pages/index.vue')
+            })
+          }
+        }
 
-    配置
+      路由守卫
+        前置：依赖中间件 middleware，插件
+              全局守卫：nuxt.config.js 指向 middleware
+                        layout 定义中间件
+              组件内守卫：middleware
+              插件全局前置守卫：/plugins 定义, nuxt.config.js 的 plugins 属性引用
+
+        后置：使用 vue 的 beforeRouterLeave 钩子
+              插件全局后置守卫
+    
 

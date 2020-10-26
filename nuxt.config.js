@@ -18,12 +18,22 @@ export default {
   ],
 
   router: {
-    middleware: 'auth'
+    middleware: 'auth',
+
+    // 扩展路由
+    extendRouters (router, resolve) {
+      router.push({
+        name: 'home',
+        path: '/index',
+        components: resolve(__dirname,'pages/index.vue')
+      })
+    }
   },
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+    '@plugins/router'
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
