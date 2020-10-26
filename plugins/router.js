@@ -7,7 +7,7 @@ export default ({ app, redirect, params, query, store }) => {
   })
 
   // 插件全局后置守卫
-  app.afterEach((to, from) => {
+  app.router.afterEach((to, from) => {
     console.log(to)
   })
 }
